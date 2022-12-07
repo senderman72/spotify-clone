@@ -8,10 +8,11 @@ export default function Playlist({ spotifyApi }) {
   const { id } = useParams();
   const [playlistInfo, setPlaylistInfo] = useState({});
   const [songs, setSongs] = useState([]);
-  console.log(spotifyApi);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function getSongs() {
+      setLoading(true);
       const data = await spotifyApi.getPlaylist(id);
       console.log(data);
       setPlaylistInfo({
@@ -19,6 +20,7 @@ export default function Playlist({ spotifyApi }) {
         image: data.body.images[0].url,
       });
       setSongs(data.body.tracks.items);
+      setLoading(false);
     }
     getSongs();
   }, [id, spotifyApi]);
@@ -79,7 +81,7 @@ export default function Playlist({ spotifyApi }) {
           </Typography>
         </Box>
       </Box>
-      <SongTable />
+      <SongTable songs={songs} loading={loading} spotifyApi={spotifyApi} />
       {/* Låtarna hamnar här */}
     </Box>
   );
