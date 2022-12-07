@@ -1,7 +1,9 @@
 import { Box, Divider } from "@mui/material";
 import React from "react";
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 import { useSelector } from "react-redux";
 import NavPlaylist from "./NavPlaylist";
+import NavItem from "./NavItem";
 
 export default function Sidenav() {
   const { status, albumList } = useSelector((state) => state.playlist);
@@ -38,6 +40,7 @@ export default function Sidenav() {
       <Box p={3}>
         <img src="/Spotify_Logo.png" width={"75%"} alt="Spotify" />
       </Box>
+      <NavItem name="Home" Icon={HomeRoundedIcon} target="/" active />
 
       <Box px={3} py={1}>
         <Divider sx={{ backgroundColor: "#ffffff40" }} />

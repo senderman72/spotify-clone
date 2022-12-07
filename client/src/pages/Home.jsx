@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Box
       sx={{
-        bgcolor: "#f0f",
+        background: "linear-gradient(#121212,#f25042 )",
         flex: 1,
       }}
     >

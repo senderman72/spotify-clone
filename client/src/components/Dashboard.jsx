@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import { useDispatch, useSelector } from "react-redux";
 import { getPlaylist } from "../store/playListSlice";
 import { getAccessTokenFromStorage } from "../utils/getAccessTokenFromStorage";
+import Playlist from "../pages/Playlist";
 
 export default function Dashboard({ spotifyApi }) {
   const dispatch = useDispatch();
@@ -36,7 +37,10 @@ export default function Dashboard({ spotifyApi }) {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/library" element={<h1>Library</h1>} />
-          <Route path="/playlist/:id" element={<h1>Playlist</h1>} />
+          <Route
+            path="/playlist/:id"
+            element={<Playlist spotifyApi={spotifyApi} />}
+          />
         </Routes>
       </Box>
     </Box>
