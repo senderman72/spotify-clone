@@ -21,7 +21,7 @@ export default function SongRow({
         color: "text.secondary",
         fontSize: 14,
         cursor: "pointer",
-        "&:hover": { bgcolor: "#f25042" },
+        "&:hover": { bgcolor: "rgba(255, 71, 71, 0.46)" },
       }}
     >
       <Grid

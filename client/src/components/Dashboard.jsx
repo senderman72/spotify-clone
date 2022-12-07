@@ -3,10 +3,11 @@ import { Routes, Route } from "react-router-dom";
 import Sidenav from "./Sidenav";
 import { Box } from "@mui/material";
 import Home from "../pages/Home";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getPlaylist } from "../store/playListSlice";
 import { getAccessTokenFromStorage } from "../utils/getAccessTokenFromStorage";
 import Playlist from "../pages/Playlist";
+import Player from "./Player";
 
 export default function Dashboard({ spotifyApi }) {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ export default function Dashboard({ spotifyApi }) {
     if (accessToken) {
       onMount();
     }
-  }, []);
+  }, [spotifyApi, dispatch]);
 
   return (
     <Box
@@ -43,6 +44,7 @@ export default function Dashboard({ spotifyApi }) {
           />
         </Routes>
       </Box>
+      <Player />
     </Box>
   );
 }
