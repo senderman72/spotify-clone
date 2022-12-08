@@ -5,7 +5,7 @@ import { playSongFromList } from "../store/playerSlice";
 import { useDispatch } from "react-redux";
 
 const SongRow = ({
-  image,
+  images,
   seconds,
   title,
   artist,
@@ -16,6 +16,7 @@ const SongRow = ({
   loading,
   position,
 }) => {
+  const image = images?.length > 0 ? images[0] : null;
   const dispatch = useDispatch();
 
   const onRowClick = () => {
@@ -59,7 +60,7 @@ const SongRow = ({
         {loading ? (
           <Skeleton variant="rectangular" width={40} height={40} />
         ) : (
-          <Avatar image={image} alt={title} variant="square" />
+          <Avatar src={image?.url} alt={title} variant="square" />
         )}
         <Box ml={1}>
           <Typography sx={{ fontSize: 16, color: "text.primary" }}>

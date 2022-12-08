@@ -64,7 +64,7 @@ export default function SongTable({ songs, loading, spotifyApi }) {
             <SongRow
               title={track.name}
               artist={track.artists[0].name}
-              image={track.album.images[0].url}
+              images={track.album.images}
               position={index + 1}
               album={track.album.name}
               seconds={track.duration_ms / 1000}
