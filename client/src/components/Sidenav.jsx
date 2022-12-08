@@ -43,7 +43,7 @@ export default function Sidenav() {
       <NavItem name="Home" Icon={HomeRoundedIcon} target="/" active />
 
       <Box px={3} py={1}>
-        <Divider sx={{ backgroundColor: "#ffffff40" }} />
+        <Divider sx={{ backgroundColor: "#f25042" }} />
       </Box>
       <Box sx={{ overflowY: "auto", flex: 1 }}>{renderPlaylist()}</Box>
     </Box>

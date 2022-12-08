@@ -43,9 +43,9 @@ export const playerSlice = createSlice({
 export const playSongFromList = createAsyncThunk(
   "playSongFromList",
   async (payload, thunkAPI) => {
-    const { spotifyApi, song } = payload;
-    const { title, image, artist, duration, position } = song;
     try {
+      const { spotifyApi, song } = payload;
+      const { title, image, artist, duration, position } = song;
       await spotifyApi.play(song);
       const data = {
         title,
@@ -61,3 +61,5 @@ export const playSongFromList = createAsyncThunk(
     }
   }
 );
+
+export default playerSlice.reducer;
