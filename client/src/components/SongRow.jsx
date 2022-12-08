@@ -59,7 +59,7 @@ const SongRow = ({
         {loading ? (
           <Skeleton variant="rectangular" width={40} height={40} />
         ) : (
-          <Avatar image={image?.url} alt={title} variant="square" />
+          <Avatar image={image} alt={title} variant="square" />
         )}
         <Box ml={1}>
           <Typography sx={{ fontSize: 16, color: "text.primary" }}>
