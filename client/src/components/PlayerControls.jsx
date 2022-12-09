@@ -4,7 +4,7 @@ import { IconButton, Stack, Typography, Slider } from "@mui/material";
 import { formatTime } from "../utils/formatTime";
 import { useState, useEffect } from "react";
 
-const PlayerControls = ({ player, is_paused, seconds, duration, progress }) => {
+const PlayerControls = ({ player, is_paused, duration, progress }) => {
   const skipStyle = { width: 28, height: 28 };
   const [currentProgress, setCurrentProgress] = useState(progress);
 
@@ -84,7 +84,7 @@ const PlayerControls = ({ player, is_paused, seconds, duration, progress }) => {
           onChange={(_, value) => {
             setCurrentProgress(value);
           }}
-          onChangeCommitted={(e, value) => {
+          onChangeCommitted={(_, value) => {
             player.seek(value * 1000);
           }}
           min={0}
@@ -94,7 +94,7 @@ const PlayerControls = ({ player, is_paused, seconds, duration, progress }) => {
           variant="body1"
           sx={{ color: "text.secondary", fontSize: 12 }}
         >
-          {formatTime(seconds)}
+          {formatTime(duration)}
         </Typography>
       </Stack>
     </Stack>
