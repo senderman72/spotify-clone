@@ -70,6 +70,7 @@ export default function SongTable({ songs, loading, spotifyApi }) {
               seconds={track.duration_ms / 1000}
               contextUri={track.contextUri}
               spotifyApi={spotifyApi}
+              id={track.id}
             />
           ))}
     </Box>

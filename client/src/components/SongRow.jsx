@@ -3,6 +3,7 @@ import { Grid, Box, Typography, Avatar, Skeleton } from "@mui/material";
 import { formatTime } from "../utils/formatTime";
 import { playSongFromList } from "../store/playerSlice";
 import { useDispatch } from "react-redux";
+import { useParams } from "react-router";
 
 const SongRow = ({
   images,
@@ -16,13 +17,14 @@ const SongRow = ({
   loading,
   position,
 }) => {
+  const { id } = useParams();
   const image = images?.length > 0 ? images[0] : null;
   const dispatch = useDispatch();
 
   const onRowClick = () => {
     const song = {
-      context_uri: contextUri,
-      offset: { position },
+      context_uri: `spotify:playlist:${id}`,
+      offset: { position: position - 1 },
       position_ms: 0,
       title,
       image: image ? image : {},
