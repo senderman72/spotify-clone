@@ -68,7 +68,6 @@ export default function SongTable({ songs, loading, spotifyApi }) {
               position={index + 1}
               album={track.album.name}
               seconds={track.duration_ms / 1000}
-              isPlaying={track.id === playingState.id}
               contextUri={track.contextUri}
               spotifyApi={spotifyApi}
               id={track.id}

@@ -4,6 +4,8 @@ import { getAccessTokenFromStorage } from "../utils/getAccessTokenFromStorage";
 import PlayerControls from "./PlayerControls";
 import PlayerVolume from "./PlayerVolume";
 import PlayerOverlay from "./PlayerOverlay";
+import { playSongFromList } from "../store/playerSlice";
+import { useDispatch } from "react-redux";
 
 const Player = ({ spotifyApi }) => {
   const track = {
@@ -21,6 +23,7 @@ const Player = ({ spotifyApi }) => {
   const [duration, setDuration] = useState(null);
   const [progress, setProgress] = useState(null);
   const [playerOverlayIsOpen, setPlayerOverlayIsOpen] = useState(false);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const token = getAccessTokenFromStorage();
@@ -70,6 +73,10 @@ const Player = ({ spotifyApi }) => {
       localPlayer.disconnect();
     };
   }, [localPlayer]);
+
+  useEffect(() => {
+    dispatch(playSongFromList({ current_track }), [current_track]);
+  });
 
   useEffect(() => {
     const transferMyPlayback = async () => {
